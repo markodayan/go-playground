@@ -55,3 +55,45 @@ func (arrPointer *intArr) quickSort(low int, high int) {
 		(*arrPointer).quickSort(partitionIndex + 1, high)
 	}
 }
+
+// To merge we must also sort, to do so we make a new slice to avoid destroying the original unsorted slice (not sure how to properly manage recursion with receivers so returning copy for now)
+func merge(left intArr, right intArr) intArr {
+	size := len(left) + len(right)
+	i := 0
+	j:= 0
+	slice := make([]int, size)
+	count := 0
+	
+	for i < len(left) && j < len(right) {
+		if left[i] <= right[j] {
+			slice[count] = left[i]
+			count++
+			i++
+		} else {
+			slice[count] = right[j]
+			count++
+			j++
+		}
+	}
+	for i < len(left) {
+		slice[count] = left[i]
+		count++
+		i++
+	}
+	for j < len(right) {
+		slice[count] = right[j]
+		count++
+		j++
+	}
+	
+	return slice
+}
+
+func mergeSort(arr intArr) intArr {
+	if len(arr) < 2 {
+		return arr
+	}
+
+	mid := len(arr) / 2
+	return merge(mergeSort(arr[:mid]), mergeSort(arr[mid:]))
+}
