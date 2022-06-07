@@ -1,99 +1,104 @@
 package main
 
-func (arr *intArr) swap(i1 int, i2 int) {
-	(*arr)[i1], (*arr)[i2] = (*arr)[i2], (*arr)[i1]
-}
-
-func (arrPointer *intArr) partition(low int, high int) int {
-	// last array element selected as pivot
-	pivot := (*arrPointer)[high]
-	i := low - 1
-
-	for j := low; j <=high - 1; j++ {
-		if (*arrPointer)[j] < pivot {
-			i++;
-			(*arrPointer).swap(i, j)
-		}
-	}
-	
-	(*arrPointer).swap(i + 1, high)
-	return i + 1;
-}
-
-func (arrPointer *intArr) insertionSort() {
-	for i := 1; i < len(*arrPointer); i++ {
+func insertionSort(arr []int) []int {
+	for i := 1; i < len(arr); i++ {
 		for j := i - 1; j >= 0; j-- {
-			if (*arrPointer)[j] > (*arrPointer)[j + 1] {
-				(*arrPointer).swap(j, j + 1)
-			}
-		} 
-	}                                                           
-}
-
-func (arrPointer *intArr) bubbleSort() {
-	var noSwaps bool
-
-	for i := 0; i < len(*arrPointer) - 1; i++ {
-		noSwaps = true 	 
-		for j := 0; j < len(*arrPointer) - 1 - i; j++ {
-			if (*arrPointer)[j] > (*arrPointer)[j + 1] {
-				(*arrPointer).swap(j, j + 1)
-				noSwaps = false
+			if arr[j] > arr[j + 1] {
+				arr[j], arr[j + 1] = arr[j + 1], arr[j]
 			}
 		}
+	}
 
-		if noSwaps {
-			break
+	return arr
+}
+
+	/* Loop over sequence and move largest element to the end */
+	func bubbleSort(arr []int) []int {
+		/* we use i to control the amount of inner loops after each bubble */
+		for i := 0; i < len(arr); i++ {
+			noSwaps := true
+
+			for j := 0; j < len(arr) - i - 1; j++ {
+				if arr[j] > arr[j + 1] {
+					arr[j], arr[j + 1] = arr[j + 1], arr[j]
+					noSwaps = false
+				}
+			}
+
+			if noSwaps {
+				break
+			}
 		}
-	}
-}
 
-func (arrPointer *intArr) quickSort(low int, high int) {
-	if low < high {
-		partitionIndex := (*arrPointer).partition(low, high)
-		(*arrPointer).quickSort(low, partitionIndex - 1)
-		(*arrPointer).quickSort(partitionIndex + 1, high)
-	}
-}
-
-// To merge we must also sort, to do so we make a new slice to avoid destroying the original unsorted slice (not sure how to properly manage recursion with receivers so returning copy for now)
-func merge(left intArr, right intArr) intArr {
-	size := len(left) + len(right)
-	i := 0
-	j:= 0
-	slice := make([]int, size)
-	count := 0
-	
-	for i < len(left) && j < len(right) {
-		if left[i] <= right[j] {
-			slice[count] = left[i]
-			count++
-			i++
-		} else {
-			slice[count] = right[j]
-			count++
-			j++
-		}
-	}
-	for i < len(left) {
-		slice[count] = left[i]
-		count++
-		i++
-	}
-	for j < len(right) {
-		slice[count] = right[j]
-		count++
-		j++
-	}
-	
-	return slice
-}
-
-func mergeSort(arr intArr) intArr {
-	if len(arr) < 2 {
 		return arr
 	}
 
-	mid := len(arr) / 2
-	return merge(mergeSort(arr[:mid]), mergeSort(arr[mid:]))
-}
+
+	/* Similar to bubble sort but we move smallest element to start */
+	func selectionSort(arr []int) []int {
+		for i := 0; i < len(arr); i++ {
+			candidateUpdated := false
+			candidateIndex := i
+
+			for j := i + 1; j < len(arr); j++ {
+				if arr[j] < arr[candidateIndex] {
+					candidateIndex = j
+					candidateUpdated = true
+				}
+			}
+
+			if candidateUpdated {
+				arr[i], arr[candidateIndex] = arr[candidateIndex], arr[i]
+			}
+
+			
+		}		
+
+		return arr
+	}
+
+	func mergeSort(arr []int) []int {
+		if len(arr) < 2 {
+			return arr
+		}
+
+		mid := len(arr) / 2
+		left := mergeSort(arr[:mid])
+		right := mergeSort(arr[mid:])
+
+		return merge(left, right)
+	}
+
+
+	func merge(arr1 []int, arr2 []int) []int {
+		i := 0
+		j := 0
+		resultIndex := 0
+		result := make([]int, len(arr1) + len(arr2))
+
+		for i < len(arr1) && j < len(arr2) {
+			if arr1[i] < arr2[j] {
+				result[resultIndex] = arr1[i]
+				i++
+			} else {
+				result[resultIndex] = arr2[j]
+				j++
+			}
+
+			resultIndex++
+		}
+
+		for i < len(arr1) {
+			result[resultIndex] = arr1[i]
+			i++
+			resultIndex++
+		}
+
+		for j < len(arr2) {
+			result[resultIndex] = arr2[j]
+			j++
+			resultIndex++
+		}
+
+		return result
+	}
