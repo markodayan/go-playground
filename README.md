@@ -1,5 +1,11 @@
 # Notes
 
+Run tests with:
+
+```
+go test -v
+```
+
 ### Insertion Sort
 
 - Always start at index of 2nd element (first `i` loop)
