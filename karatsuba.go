@@ -17,7 +17,7 @@ import (
 // ac = karatsuba(a,c)
 // bd = karatsuba(b,d)
 
-// we can use ac and bd values to determine ad + bc (using properties of algebraic multiplication)
+// we can use ac and bd values to determine ad + bc (using Gauss elimination)
 // ad + bc = karatsuba(a + b, c + d) - ac - bd
 
 func karatsuba(x int, y int) int {

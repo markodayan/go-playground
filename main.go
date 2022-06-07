@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 )
-
 type intArr []int
 
 func main() {
@@ -18,4 +17,10 @@ func main() {
 
 	// x := 146123 / (int(math.Pow10(3)))
 	// fmt.Println(x)
+
+	encoded := base64Encoding("Hello World!")
+	fmt.Println("Encoded String:", encoded)
+
+	decoded := base64Decoding(encoded)
+	fmt.Println("Decoded String:", decoded)
 }
