@@ -1,4 +1,4 @@
-package main
+package datastructures
 
 // MaxHeap struct has a slice that holds the array
 type MaxHeap struct{

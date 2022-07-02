@@ -1,9 +1,9 @@
-package main
+package crypto
 
 import "testing"
 
 func TestBase64Encoding(t *testing.T) {
-	encoded := base64Encoding("Hello World!")
+	encoded := Base64Encoding("Hello World!")
 	expected := "SGVsbG8gV29ybGQh"
 
 	if encoded != expected {
@@ -12,7 +12,7 @@ func TestBase64Encoding(t *testing.T) {
 }
 
 func TestBase64Decoding(t *testing.T) {
-	decoded := base64Decoding("SGVsbG8gV29ybGQh")
+	decoded := Base64Decoding("SGVsbG8gV29ybGQh")
 	expected := "Hello World!"
 
 	if decoded != expected {

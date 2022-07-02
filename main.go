@@ -2,8 +2,11 @@ package main
 
 import (
 	"fmt"
+	"playground/algorithms"
+	c "playground/crypto"
+	"playground/pointers"
 )
-type intArr []int
+
 
 func main() {
 	// a := 8 // 2^3
@@ -12,15 +15,24 @@ func main() {
 
 	// arr := []int{5,2,4,6,1,3, 8, 8 ,1}
 
-	product := karatsuba(146123, 352120)
+	// start := time.Now()
+	product := algorithms.Karatsuba(146123, 352120)
 	fmt.Println(product)
+	// log.Println(product, "Execution Time:", time.Since(start))
 
-	// x := 146123 / (int(math.Pow10(3)))
-	// fmt.Println(x)
+	// // x := 146123 / (int(math.Pow10(3)))
+	// // fmt.Println(x)
 
-	encoded := base64Encoding("Hello World!")
+	encoded := c.Base64Encoding("Hello World!")
 	fmt.Println("Encoded String:", encoded)
 
-	decoded := base64Decoding(encoded)
+	decoded := c.Base64Decoding(encoded)
 	fmt.Println("Decoded String:", decoded)
+
+	sorted := algorithms.InsertionSort([]int{5,4,2,3,1})
+	fmt.Println(sorted)
+
+	arr := pointers.IntArr{5,2,4,6,1,3, 8, 8 ,1}
+	arr.InsertionSort()
+	fmt.Println(arr)
 }

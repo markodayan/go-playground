@@ -1,4 +1,4 @@
-package main
+package pointers
 
 import (
 	"reflect"
@@ -6,40 +6,41 @@ import (
 	"testing"
 )
 
+
 func TestSwap(t *testing.T) {
-	arr := intArr{1,2,3,4,5,6}
+	arr := IntArr{1,2,3,4,5,6}
 	arr.swap(0, 1)
 
-	if !reflect.DeepEqual(arr, intArr{2,1,3,4,5,6}) {
-		t.Errorf("Expected slice %v but got %v", intArr{2,1,3,4,5,6}, arr)
+	if !reflect.DeepEqual(arr, IntArr{2,1,3,4,5,6}) {
+		t.Errorf("Expected slice %v but got %v", IntArr{2,1,3,4,5,6}, arr)
 	}
 }
 
-func TestMutativeInsertionSort(t *testing.T) {
-	a1 := intArr{5,2,4,6,1,3}
-	a1_expected := intArr{1,2,3,4,5,6}
+func TestInsertionSort(t *testing.T) {
+	a1 := IntArr{5,2,4,6,1,3}
+	a1_expected := IntArr{1,2,3,4,5,6}
 
-	a2 := intArr{2,1,9,76,4}
-	a2_expected := intArr{1,2,4,9,76}
+	a2 := IntArr{2,1,9,76,4}
+	a2_expected := IntArr{1,2,4,9,76}
 	
-	a3 := intArr{5,3,4,6,2}
-	a3_expected := intArr{2,3,4,5,6}
+	a3 := IntArr{5,3,4,6,2}
+	a3_expected := IntArr{2,3,4,5,6}
 	
-	a4 := intArr{5,3,4,1,2}
-	a4_expected := intArr{1,2,3,4,5}
+	a4 := IntArr{5,3,4,1,2}
+	a4_expected := IntArr{1,2,3,4,5}
 	
-	a5 := intArr{10,80,30,90,40,50,70}
-	a5_expected := intArr{10,30,40,50,70,80,90}
+	a5 := IntArr{10,80,30,90,40,50,70}
+	a5_expected := IntArr{10,30,40,50,70,80,90}
 
-	a6 := intArr{1,2,3,4,5,6}
-	a6_expected := intArr{1,2,3,4,5,6}
+	a6 := IntArr{1,2,3,4,5,6}
+	a6_expected := IntArr{1,2,3,4,5,6}
 
-	a1.mutativeInsertionSort()
-	a2.mutativeInsertionSort()
-	a3.mutativeInsertionSort()
-	a4.mutativeInsertionSort()
-	a5.mutativeInsertionSort()
-	a6.mutativeInsertionSort()
+	a1.InsertionSort()
+	a2.InsertionSort()
+	a3.InsertionSort()
+	a4.InsertionSort()
+	a5.InsertionSort()
+	a6.InsertionSort()
 
 	if !reflect.DeepEqual(a1, a1_expected) {
 		t.Errorf("Expected slice %v but got %v", a1_expected, a1)
@@ -66,31 +67,31 @@ func TestMutativeInsertionSort(t *testing.T) {
 	}
 }
 
-func TestMutativeBubbleSort(t *testing.T) {
-	a1 := intArr{5,2,4,6,1,3}
-	a1_expected := intArr{1,2,3,4,5,6}
+func TestBubbleSort(t *testing.T) {
+	a1 := IntArr{5,2,4,6,1,3}
+	a1_expected := IntArr{1,2,3,4,5,6}
 
-	a2 := intArr{2,1,9,76,4}
-	a2_expected := intArr{1,2,4,9,76}
+	a2 := IntArr{2,1,9,76,4}
+	a2_expected := IntArr{1,2,4,9,76}
 	
-	a3 := intArr{5,3,4,6,2}
-	a3_expected := intArr{2,3,4,5,6}
+	a3 := IntArr{5,3,4,6,2}
+	a3_expected := IntArr{2,3,4,5,6}
 	
-	a4 := intArr{5,3,4,1,2}
-	a4_expected := intArr{1,2,3,4,5}
+	a4 := IntArr{5,3,4,1,2}
+	a4_expected := IntArr{1,2,3,4,5}
 	
-	a5 := intArr{10,80,30,90,40,50,70}
-	a5_expected := intArr{10,30,40,50,70,80,90}
+	a5 := IntArr{10,80,30,90,40,50,70}
+	a5_expected := IntArr{10,30,40,50,70,80,90}
 
-	a6 := intArr{1,2,3,4,5,6}
-	a6_expected := intArr{1,2,3,4,5,6}
+	a6 := IntArr{1,2,3,4,5,6}
+	a6_expected := IntArr{1,2,3,4,5,6}
 
-	a1.mutativeBubbleSort()
-	a2.mutativeBubbleSort()
-	a3.mutativeBubbleSort()
-	a4.mutativeBubbleSort()
-	a5.mutativeBubbleSort()
-	a6.mutativeBubbleSort()
+	a1.BubbleSort()
+	a2.BubbleSort()
+	a3.BubbleSort()
+	a4.BubbleSort()
+	a5.BubbleSort()
+	a6.BubbleSort()
 
 	if !reflect.DeepEqual(a1, a1_expected) {
 		t.Errorf("Expected slice %v but got %v", a1_expected, a1)
@@ -117,31 +118,31 @@ func TestMutativeBubbleSort(t *testing.T) {
 	}
 }
 
-func TestMutativeQuickSort(t *testing.T) {
-	a1 := intArr{5,2,4,6,1,3}
-	a1_expected := intArr{1,2,3,4,5,6}
+func TestQuickSort(t *testing.T) {
+	a1 := IntArr{5,2,4,6,1,3}
+	a1_expected := IntArr{1,2,3,4,5,6}
 
-	a2 := intArr{2,1,9,76,4}
-	a2_expected := intArr{1,2,4,9,76}
+	a2 := IntArr{2,1,9,76,4}
+	a2_expected := IntArr{1,2,4,9,76}
 	
-	a3 := intArr{5,3,4,6,2}
-	a3_expected := intArr{2,3,4,5,6}
+	a3 := IntArr{5,3,4,6,2}
+	a3_expected := IntArr{2,3,4,5,6}
 	
-	a4 := intArr{5,3,4,1,2}
-	a4_expected := intArr{1,2,3,4,5}
+	a4 := IntArr{5,3,4,1,2}
+	a4_expected := IntArr{1,2,3,4,5}
 	
-	a5 := intArr{10,80,30,90,40,50,70}
-	a5_expected := intArr{10,30,40,50,70,80,90}
+	a5 := IntArr{10,80,30,90,40,50,70}
+	a5_expected := IntArr{10,30,40,50,70,80,90}
 
-	a6 := intArr{1,2,3,4,5,6}
-	a6_expected := intArr{1,2,3,4,5,6}
+	a6 := IntArr{1,2,3,4,5,6}
+	a6_expected := IntArr{1,2,3,4,5,6}
 
-	a1.mutativeQuickSort(0, len(a1) - 1)
-	a2.mutativeQuickSort(0, len(a2) - 1)
-	a3.mutativeQuickSort(0, len(a3) - 1)
-	a4.mutativeQuickSort(0, len(a4) - 1)
-	a5.mutativeQuickSort(0, len(a5) - 1)
-	a6.mutativeQuickSort(0, len(a6) - 1)
+	a1.QuickSort(0, len(a1) - 1)
+	a2.QuickSort(0, len(a2) - 1)
+	a3.QuickSort(0, len(a3) - 1)
+	a4.QuickSort(0, len(a4) - 1)
+	a5.QuickSort(0, len(a5) - 1)
+	a6.QuickSort(0, len(a6) - 1)
 
 	if !reflect.DeepEqual(a1, a1_expected) {
 		t.Errorf("Expected slice %v but got %v", a1_expected, a1)

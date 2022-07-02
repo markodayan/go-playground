@@ -3,7 +3,7 @@
 Run tests with:
 
 ```
-go test -v
+go test -v ./...
 ```
 
 ### Insertion Sort

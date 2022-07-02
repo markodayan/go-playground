@@ -1,34 +1,36 @@
-package main
+package algorithms
 
 import (
 	. "sort"
 	"testing"
 )
 
+type intArr []int
+
 func TestInsertionSort(t *testing.T) {
 	a1 := intArr{5,2,4,6,1,3}
 	a1_expected := intArr{1,2,3,4,5,6}
-	a1_sorted := insertionSort(a1)
+	a1_sorted := InsertionSort(a1)
 
 	a2 := intArr{2,1,9,76,4}
 	a2_expected := intArr{1,2,4,9,76}
-	a2_sorted := insertionSort(a2)
+	a2_sorted := InsertionSort(a2)
 
 	a3 := intArr{5,3,4,6,2}
 	a3_expected := intArr{2,3,4,5,6}
-	a3_sorted := insertionSort(a3)
+	a3_sorted := InsertionSort(a3)
 
 	a4 := intArr{5,3,4,1,2}
 	a4_expected := intArr{1,2,3,4,5}
-	a4_sorted := insertionSort(a4)
+	a4_sorted := InsertionSort(a4)
 
 	a5 := intArr{10,80,30,90,40,50,70}
 	a5_expected := intArr{10,30,40,50,70,80,90}
-	a5_sorted := insertionSort(a5)
+	a5_sorted := InsertionSort(a5)
 
 	a6 := intArr{1,2,3,4,5,6}
 	a6_expected := intArr{1,2,3,4,5,6}
-	a6_sorted := insertionSort(a6)
+	a6_sorted := InsertionSort(a6)
 
 	if !IntsAreSorted(a1_sorted) {
 		t.Errorf("Expected slice %v but got %v", a1_expected, a1_sorted)
@@ -58,27 +60,27 @@ func TestInsertionSort(t *testing.T) {
 func TestBubbleSort(t *testing.T) {
 	a1 := intArr{5,2,4,6,1,3}
 	a1_expected := intArr{1,2,3,4,5,6}
-	a1_sorted := bubbleSort(a1)
+	a1_sorted := BubbleSort(a1)
 
 	a2 := intArr{2,1,9,76,4}
 	a2_expected := intArr{1,2,4,9,76}
-	a2_sorted := bubbleSort(a2)
+	a2_sorted := BubbleSort(a2)
 
 	a3 := intArr{5,3,4,6,2}
 	a3_expected := intArr{2,3,4,5,6}
-	a3_sorted := bubbleSort(a3)
+	a3_sorted := BubbleSort(a3)
 
 	a4 := intArr{5,3,4,1,2}
 	a4_expected := intArr{1,2,3,4,5}
-	a4_sorted := bubbleSort(a4)
+	a4_sorted := BubbleSort(a4)
 
 	a5 := intArr{10,80,30,90,40,50,70}
 	a5_expected := intArr{10,30,40,50,70,80,90}
-	a5_sorted := bubbleSort(a5)
+	a5_sorted := BubbleSort(a5)
 
 	a6 := intArr{1,2,3,4,5,6}
 	a6_expected := intArr{1,2,3,4,5,6}
-	a6_sorted := bubbleSort(a6)
+	a6_sorted := BubbleSort(a6)
 
 	if !IntsAreSorted(a1_sorted) {
 		t.Errorf("Expected slice %v but got %v", a1_expected, a1_sorted)
@@ -108,27 +110,27 @@ func TestBubbleSort(t *testing.T) {
 func TestSelectionSort(t *testing.T) {
 	a1 := intArr{5,2,4,6,1,3}
 	a1_expected := intArr{1,2,3,4,5,6}
-	a1_sorted := selectionSort(a1)
+	a1_sorted := SelectionSort(a1)
 	
 	a2 := intArr{2,1,9,76,4}
 	a2_expected := intArr{1,2,4,9,76}
-	a2_sorted := selectionSort(a2)
+	a2_sorted := SelectionSort(a2)
 	
 	a3 := intArr{5,3,4,6,2}
 	a3_expected := intArr{2,3,4,5,6}
-	a3_sorted := selectionSort(a3)
+	a3_sorted := SelectionSort(a3)
 	
 	a4 := intArr{5,3,4,1,2}
 	a4_expected := intArr{1,2,3,4,5}
-	a4_sorted := selectionSort(a4)
+	a4_sorted := SelectionSort(a4)
 	
 	a5 := intArr{10,80,30,90,40,50,70}
 	a5_expected := intArr{10,30,40,50,70,80,90}
-	a5_sorted := selectionSort(a5)
+	a5_sorted := SelectionSort(a5)
 	
 	a6 := intArr{1,2,3,4,5,6}
 	a6_expected := intArr{1,2,3,4,5,6}
-	a6_sorted := selectionSort(a6)
+	a6_sorted := SelectionSort(a6)
 
 
 
@@ -176,27 +178,27 @@ func TestMerge(t *testing.T) {
 func TestMergeSort(t *testing.T) {
 	a1 := intArr{5,2,4,6,1,3}
 	a1_expected := intArr{1,2,3,4,5,6}
-	a1_sorted := mergeSort(a1)
+	a1_sorted := MergeSort(a1)
 	
 	a2 := intArr{2,1,9,76,4}
 	a2_expected := intArr{1,2,4,9,76}
-	a2_sorted := mergeSort(a2)
+	a2_sorted := MergeSort(a2)
 	
 	a3 := intArr{5,3,4,6,2}
 	a3_expected := intArr{2,3,4,5,6}
-	a3_sorted := mergeSort(a3)
+	a3_sorted := MergeSort(a3)
 	
 	a4 := intArr{5,3,4,1,2}
 	a4_expected := intArr{1,2,3,4,5}
-	a4_sorted := mergeSort(a4)
+	a4_sorted := MergeSort(a4)
 	
 	a5 := intArr{10,80,30,90,40,50,70}
 	a5_expected := intArr{10,30,40,50,70,80,90}
-	a5_sorted := mergeSort(a5)
+	a5_sorted := MergeSort(a5)
 	
 	a6 := intArr{1,2,3,4,5,6}
 	a6_expected := intArr{1,2,3,4,5,6}
-	a6_sorted := mergeSort(a6)
+	a6_sorted := MergeSort(a6)
 
 
 

@@ -1,12 +1,12 @@
-package main
+package crypto
 
 import "encoding/base64"
 
-func base64Encoding(text string) string {
+func Base64Encoding(text string) string {
 	return base64.StdEncoding.EncodeToString([]byte(text))
 }
 
-func base64Decoding(encrypted string) string {
+func Base64Decoding(encrypted string) string {
 	decoded, err := base64.RawStdEncoding.DecodeString(encrypted)
 
 	if err != nil {

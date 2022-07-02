@@ -1,10 +1,18 @@
-package main
+package pointers
 
-func (arr *intArr) swap(i1 int, i2 int) {
+import "fmt"
+
+type IntArr []int
+
+func Hi() {
+	fmt.Println("Hello World")
+}
+
+func (arr *IntArr) swap(i1 int, i2 int) {
 	(*arr)[i1], (*arr)[i2] = (*arr)[i2], (*arr)[i1]
 }
 
-func (arrPointer *intArr) mutativeInsertionSort() {
+func (arrPointer *IntArr) InsertionSort() {
 	for i := 1; i < len(*arrPointer); i++ {
 		for j := i - 1; j >= 0; j-- {
 			if (*arrPointer)[j] > (*arrPointer)[j + 1] {
@@ -14,7 +22,7 @@ func (arrPointer *intArr) mutativeInsertionSort() {
 	}                                                           
 }
 
-func (arrPointer *intArr) mutativeBubbleSort() {
+func (arrPointer *IntArr) BubbleSort() {
 	var noSwaps bool
 
 	for i := 0; i < len(*arrPointer) - 1; i++ {
@@ -32,7 +40,7 @@ func (arrPointer *intArr) mutativeBubbleSort() {
 	}
 }
 
-func (arrPointer *intArr) partition(low int, high int) int {
+func (arrPointer *IntArr) partition(low int, high int) int {
 	// last array element selected as pivot
 	pivot := (*arrPointer)[high]
 	i := low - 1
@@ -48,10 +56,10 @@ func (arrPointer *intArr) partition(low int, high int) int {
 	return i + 1;
 }
 
-func (arrPointer *intArr) mutativeQuickSort(low int, high int) {
+func (arrPointer *IntArr) QuickSort(low int, high int) {
 	if low < high {
 		partitionIndex := (*arrPointer).partition(low, high)
-		(*arrPointer).mutativeQuickSort(low, partitionIndex - 1)
-		(*arrPointer).mutativeQuickSort(partitionIndex + 1, high)
+		(*arrPointer).QuickSort(low, partitionIndex - 1)
+		(*arrPointer).QuickSort(partitionIndex + 1, high)
 	}
 }

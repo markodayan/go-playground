@@ -1,12 +1,12 @@
-package main
+package algorithms
 
 import "testing"
 
 func TestKaratsubaMultiplication(t *testing.T) {
-	x1 := karatsuba(5678, 1234)
+	x1 := Karatsuba(5678, 1234)
 	x1_expected := 7006652
 	
-	x2 := karatsuba(146123, 352120)
+	x2 := Karatsuba(146123, 352120)
 	x2_expected := 51452830760
 
 	if x1 != x1_expected {

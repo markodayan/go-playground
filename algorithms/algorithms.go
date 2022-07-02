@@ -1,6 +1,6 @@
-package main
+package algorithms
 
-func insertionSort(arr []int) []int {
+func InsertionSort(arr []int) []int {
 	for i := 1; i < len(arr); i++ {
 		for j := i - 1; j >= 0; j-- {
 			if arr[j] > arr[j + 1] {
@@ -13,7 +13,7 @@ func insertionSort(arr []int) []int {
 }
 
 	/* Loop over sequence and move largest element to the end */
-	func bubbleSort(arr []int) []int {
+	func BubbleSort(arr []int) []int {
 		/* we use i to control the amount of inner loops after each bubble */
 		for i := 0; i < len(arr); i++ {
 			noSwaps := true
@@ -35,7 +35,7 @@ func insertionSort(arr []int) []int {
 
 
 	/* Similar to bubble sort but we move smallest element to start */
-	func selectionSort(arr []int) []int {
+	func SelectionSort(arr []int) []int {
 		for i := 0; i < len(arr); i++ {
 			candidateUpdated := false
 			candidateIndex := i
@@ -57,14 +57,14 @@ func insertionSort(arr []int) []int {
 		return arr
 	}
 
-	func mergeSort(arr []int) []int {
+	func MergeSort(arr []int) []int {
 		if len(arr) < 2 {
 			return arr
 		}
 
 		mid := len(arr) / 2
-		left := mergeSort(arr[:mid])
-		right := mergeSort(arr[mid:])
+		left := MergeSort(arr[:mid])
+		right := MergeSort(arr[mid:])
 
 		return merge(left, right)
 	}

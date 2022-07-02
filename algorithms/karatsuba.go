@@ -1,4 +1,4 @@
-package main
+package algorithms
 
 import (
 	"math"
@@ -20,7 +20,7 @@ import (
 // we can use ac and bd values to determine ad + bc (using Gauss elimination)
 // ad + bc = karatsuba(a + b, c + d) - ac - bd
 
-func karatsuba(x int, y int) int {
+func Karatsuba(x int, y int) int {
 	if x < 10 && y < 10 {
 		return x * y
 	}
@@ -36,9 +36,9 @@ func karatsuba(x int, y int) int {
 	b := x % (int(math.Pow10(half)))
 	d := y % (int(math.Pow10(half)))
 
-	ac := karatsuba(a, c)
-	bd := karatsuba(b, d)
-	ad_plus_bc := karatsuba(a + b, c + d) - ac - bd
+	ac := Karatsuba(a, c)
+	bd := Karatsuba(b, d)
+	ad_plus_bc := Karatsuba(a + b, c + d) - ac - bd
 	
 	return ac * (int(math.Pow10(2 * half))) + (ad_plus_bc * int(math.Pow10(half))) + bd
 }
