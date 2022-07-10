@@ -4,7 +4,9 @@ import (
 	"fmt"
 	"playground/algorithms"
 	c "playground/crypto"
+	datastructures "playground/data-structures"
 	"playground/pointers"
+	"playground/utils"
 )
 
 
@@ -35,4 +37,22 @@ func main() {
 	arr := pointers.IntArr{5,2,4,6,1,3, 8, 8 ,1}
 	arr.InsertionSort()
 	fmt.Println(arr)
+
+	name,size, err := utils.Capitalize("Bob")
+
+	if err != nil {
+		fmt.Println("Could not capitalize", err)
+	} else {
+		fmt.Printf("Capitalized name: %s, length %d\n", name, size)
+	}
+
+	key := c.Key()
+	fmt.Println(key)
+
+	woord := "zyzz"
+	w := woord[0] - 'a' // 25
+	fmt.Println(w)
+	
+	datastructures.TestTrie()
+	
 }
