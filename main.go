@@ -53,6 +53,7 @@ func main() {
 	w := woord[0] - 'a' // 25
 	fmt.Println(w)
 	
-	datastructures.TestTrie()
+	// datastructures.TestTrie()
+	datastructures.TestHashTable()
 	
 }

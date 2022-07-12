@@ -63,8 +63,16 @@ func (trie *Trie) Search(word string) bool {
 
 func TestTrie() {
 	trie := InitTrie()
-	trie.Insert("orc")
-	trie.Insert("orange")
+
+	toAdd := []string{
+		"orc",
+		"orange",
+	}
+
+	for _, v := range toAdd {
+		trie.Insert(v)
+	}
+
 	fmt.Printf("or: %v \n", trie.Search("or")) // false
 	fmt.Printf("orc: %v \n", trie.Search("orc")) // true
 	fmt.Printf("ork: %v \n", trie.Search("ork")) // false
