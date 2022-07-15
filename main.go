@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"playground/algorithms"
 	c "playground/crypto"
+	datastructures "playground/data-structures"
 	"playground/pointers"
 	"playground/utils"
 )
@@ -56,4 +57,6 @@ func main() {
 	// datastructures.TestHashTable()
 	// datastructures.TestStack()
 	// datastructures.TestQueue()
+	// datastructures.TestBST()
+	datastructures.TestHeap()
 }
