@@ -136,3 +136,9 @@ func TestHashTable(t *testing.T) {
 		t.Errorf("[Expected missing key in hash table] - ht.Search(%v) should be false but got %t", "RANDY", containsKey)
 	}
 }
+
+func TestLinkedList(t *testing.T) {}
+func TestMaxHeap(t *testing.T) {}
+func TestQueue(t *testing.T) {}
+func TestStack(t *testing.T) {}
+func TestTrie(t *testing.T) {}
