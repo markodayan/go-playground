@@ -1,7 +1,5 @@
 package datastructures
 
-import "fmt"
-
 var count int
 
 
@@ -52,13 +50,13 @@ func InitBST(v int) *node {
 	return &node{val: v}
 }
 
-func TestBST() {
-	tree := &node{val:5}
-	tree.Insert(10)
-	tree.Insert(15)
-	tree.Insert(3)
-	fmt.Println(tree)
-	count = 0
-	isPresent := tree.Search(7)
-	fmt.Printf("isPresent: %v . Number of nodes traversed: %v\n", isPresent, count)
-}
+// func testBST() {
+// 	tree := &node{val:5}
+// 	tree.Insert(10)
+// 	tree.Insert(15)
+// 	tree.Insert(3)
+// 	fmt.Println(tree)
+// 	count = 0
+// 	isPresent := tree.Search(7)
+// 	fmt.Printf("isPresent: %v . Number of nodes traversed: %v\n", isPresent, count)
+// }

@@ -22,7 +22,7 @@ func (s *Stack[T]) Pop() T {
 }
 
 
-func TestStack() {
+func testStack() {
 	stack := &Stack[int]{}
 	stack.Push(5)
 	stack.Push(10)

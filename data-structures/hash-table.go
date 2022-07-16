@@ -12,7 +12,6 @@ type HashTable struct {
 	array [ArraySize]*bucket
 }
 
-
 type bucket struct {
 	head *bucketNode
 
@@ -108,16 +107,3 @@ func InitHashTable() *HashTable {
 
 	return result
 }
-
-func TestHashTable() {
-	hashTable := InitHashTable()
-	fmt.Println(hashTable)
-	fmt.Println(hash("RANDY"))
-
-	testBucket := &bucket{}
-	testBucket.insert("RANDY")
-	testBucket.delete("RANDY")
-	fmt.Println("RANDY search:", testBucket.search("RANDY"))
-	fmt.Println("ERIC search:", testBucket.search("ERIC"))
-}
-

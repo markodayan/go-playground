@@ -20,7 +20,7 @@ func (q *Queue[T]) Dequeue() T {
 	return toRemove
 }
 
-func TestQueue() {
+func testQueue() {
 	queue := &Queue[int]{}
 	queue.Enqueue(5)
 	queue.Enqueue(10)

@@ -61,7 +61,7 @@ func (trie *Trie) Search(word string) bool {
 	return false
 }
 
-func TestTrie() {
+func testTrie() {
 	trie := InitTrie()
 
 	toAdd := []string{

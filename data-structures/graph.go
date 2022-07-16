@@ -13,16 +13,18 @@ type Vertex struct {
 	adjacent []*Vertex
 }
 
-func (g *Graph) AddVertex(k int) {
+func (g *Graph) AddVertex(k int) (error) {
 	if contains(g.vertices, k) {
 		err := fmt.Errorf("Vertex %v not added because it is an existing key", k)
-		fmt.Println(err.Error())
+		// fmt.Println(err.Error())
+		return err
 	} else {
 		g.vertices = append(g.vertices, &Vertex{key: k})
+		return nil
 	}
 }
 
-func (g *Graph) AddEdge(from int, to int) {
+func (g *Graph) AddEdge(from int, to int) (error) {
 	// get vertex
 	fromVertex := g.GetVertex(from)
 	toVertex := g.GetVertex(to)
@@ -30,13 +32,16 @@ func (g *Graph) AddEdge(from int, to int) {
 	// check for errors (edge already exists, adding edge to vertices that dont exist)
 	if fromVertex == nil || toVertex == nil {
 		err := fmt.Errorf("invalid edge (%v-->%v)", from, to)
-		fmt.Println(err.Error())
+		// fmt.Println(err.Error())
+		return err
 	} else if contains(fromVertex.adjacent, to) {
 		err := fmt.Errorf("existing edge (%v-->%v)", from, to)
-		fmt.Println(err.Error())
+		// fmt.Println(err.Error())
+		return err
 	} else {
 		// add edge
 		fromVertex.adjacent = append(fromVertex.adjacent, toVertex)
+		return nil
 	}
 
 }
@@ -70,25 +75,4 @@ func (g *Graph) Print() {
 		}
 	}
 	fmt.Println() // Line break for print formatting
-}
-
-func TestAdjacencyListGraph() {
-	graph := &Graph{}
-	
-	for i := 0; i < 5; i++ {
-		graph.AddVertex(i)
-	}
-
-	graph.AddEdge(0, 3)
-	graph.AddEdge(1, 2)
-	graph.AddEdge(1, 3)
-	graph.AddEdge(1, 4)
-	graph.AddEdge(2, 3)
-	graph.AddEdge(3, 1)
-
-	graph.AddEdge(6, 2)
-	graph.AddEdge(3, 1)
-	graph.AddEdge(3, 4)
-	
-	graph.Print()
 }

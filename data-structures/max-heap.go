@@ -88,7 +88,7 @@ func right(i int) int {
 	return (i * 2) + 2 
 }
 
-func TestHeap() {
+func testHeap() {
 	maxHeap := &MaxHeap{}
 	
 	buildHeap := []int{10,20,30, 5, 7, 9, 11, 13, 15, 17}
