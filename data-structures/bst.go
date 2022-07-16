@@ -48,6 +48,10 @@ func (n *node) Search(v int) bool {
 	return true
 }
 
+func InitBST(v int) *node {
+	return &node{val: v}
+}
+
 func TestBST() {
 	tree := &node{val:5}
 	tree.Insert(10)

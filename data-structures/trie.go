@@ -5,7 +5,7 @@ import "fmt"
 const ALPHABET_SIZE = 26
 
 type Trie struct {
-	root *Node
+	Root *Node
 }
 
 type Node struct {
@@ -14,14 +14,14 @@ type Node struct {
 }
 
 func InitTrie() *Trie {
-	trie := &Trie{root: &Node{}}
+	trie := &Trie{Root: &Node{}}
 	return trie
 }
 
 // Insert word into trie
 func (trie *Trie) Insert(word string) {
 	wordLength := len(word)
-	currentNode := trie.root
+	currentNode := trie.Root
 	for i := 0; i < wordLength; i++ {
 		// 'a' is a rune equal to 97
 		// we want 'a' to represent 0, 'b' to represent 1 etc (hence offset below) => code - 94 = range{0, 25}
@@ -42,7 +42,7 @@ func (trie *Trie) Insert(word string) {
 // Search for word in trie (return true or false depending on presence)
 func (trie *Trie) Search(word string) bool {
  	wordLength := len(word)
- 	currentNode := trie.root
+ 	currentNode := trie.Root
 
  	for i := 0; i < wordLength; i++ {
 		charIndex := word[i] - 'a'
@@ -80,7 +80,7 @@ func TestTrie() {
 	fmt.Printf("orange: %v \n", trie.Search("orange")) // true
 
 
-	x := trie.root.children
+	x := trie.Root.children
 	fmt.Println(x)
 	y := (x[14]).children
 	fmt.Println(y)

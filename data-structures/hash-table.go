@@ -1,10 +1,12 @@
 package datastructures
 
+// Arrays with linked list to manage collisions
+
 import "fmt"
 
+// Need to figure out how to instantiate fixed-size array when initialising hash table
 const ArraySize = 7
 
-// Arrays with linked list to manage collisions
 
 type HashTable struct {
 	array [ArraySize]*bucket
@@ -79,6 +81,7 @@ func (b *bucket) delete(k string) {
 		if previousNode.next.key == k {
 			// delete (pointing previous node to node after our specified node to remove)
 			previousNode.next = previousNode.next.next
+			return
 		}
 
 		previousNode = previousNode.next
@@ -95,7 +98,7 @@ func hash(key string) int {
 	return total % ArraySize
 }
 
-func Init() *HashTable {
+func InitHashTable() *HashTable {
 	result := &HashTable{}
 	
 	// create linked list for each array index
@@ -107,13 +110,12 @@ func Init() *HashTable {
 }
 
 func TestHashTable() {
-	hashTable := Init()
+	hashTable := InitHashTable()
 	fmt.Println(hashTable)
 	fmt.Println(hash("RANDY"))
 
 	testBucket := &bucket{}
 	testBucket.insert("RANDY")
-	// testBucket.insert("RANDY")
 	testBucket.delete("RANDY")
 	fmt.Println("RANDY search:", testBucket.search("RANDY"))
 	fmt.Println("ERIC search:", testBucket.search("ERIC"))
